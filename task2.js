@@ -21,7 +21,9 @@ http.get(url, (res) => {
     res.on('data', (chunk) => rowData += chunk)
     res.on('end', () => {
         let parseData = JSON.parse(rowData)
-        console.log(parseData)
+        // console.log(parseData)
+        console.log(`Текущая температура: ${parseData.current.temperature}`)
+        console.log(`Ощущается как: ${parseData.current.feelslike}`)
     })
 }).on('error', (err) => {
     console.error(err)
